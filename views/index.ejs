@@ -10,6 +10,33 @@
 </head>
 <body>
 
+<%- include('header') -%>
+
+<% if (locals.flash && locals.flash.error) { %>
+    <p class="alert-error"><%= locals.flash.error %></p>
+<% } %>
+
+<% if (locals.flash && locals.flash.success) { %>
+    <p class="alert-success"><%= locals.flash.success %></p>
+<% } %>
+
+
 <h1>Bienvenue sur l'index</h1>
+
+<section class="stories">
+
+<% for (let story of stories) { %>
+    <article class="story">
+        <h2><%= story.title %></h2>
+        <p><%= story.content %></p>
+        <p>Publié par: <%= story.author %></p>
+        <p>Le: <%= story.publishTime.toLocaleDateString() %></p>
+    </article>
+<% } %>
+</section>
+
+
+<%- include('footer') -%>
+
 </body>
 </html>

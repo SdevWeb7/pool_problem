@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/style.css" rel="stylesheet">
+    <title>Admin</title>
+</head>
+<body>
+
+<%- include('header') -%>
+
+
+<h1>Modifier <%= story.title %></h1>
+
+
+
+<form action="/update_story/<%= story.id %>" class="update_story" method="post">
+    <div>
+        <label for="title">Titre de la story</label>
+        <input type="text" name="title" id="title" placeholder="title" value="<%= story.title %>">
+    </div>
+
+    <div>
+        <label for="content">Contenu de la story</label>
+        <input type="text" name="content" id="content" placeholder="Contenu de la story" value="<%= story.content %>">
+    </div>
+
+    <button type="submit">Modifier</button>
+</form>
+
+
+<%- include('footer') -%>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="style.css" rel="stylesheet">
+    <title>Admin</title>
+</head>
+<body>
+
+<%- include('header') -%>
+
+
+<h1>Page admin</h1>
+
+
+
+<h2>Ajouter une story</h2>
+<form action="/create_story" class="add_story" method="post">
+    <div>
+        <label for="title">Titre de la story</label>
+        <input type="text" name="title" id="title" placeholder="title">
+    </div>
+
+    <div>
+        <label for="content">Contenu de la story</label>
+        <input type="text" name="content" id="content" placeholder="Contenu de la story">
+    </div>
+
+    <button type="submit">Ajouter</button>
+</form>
+
+
+
+
+<h2 style="margin-top: 4rem">Liste des stories existantes</h2>
+
+<table>
+    <tr>
+        <th>Titre</th>
+        <th>Contenu</th>
+        <th>Actions</th>
+    </tr>
+
+<% for (let story of stories) { %>
+
+    <tr>
+        <td><%= story.title %></td>
+        <td><%= story.content.substring(0, 50) %>...</td>
+        <td>
+            <a style="margin-right: 2rem;" href="/update_story/<%= story.id %>">Modifier</a>
+            <form style="display: inline; cursor:pointer;" action="/delete_story/<%= story.id %>" method="post"><input type="submit" value="Supprimer"></form>
+        </td>
+    </tr>
+<% } %>
+</table>
+
+
+<%- include('footer') -%>
+
+</body>
+</html>
