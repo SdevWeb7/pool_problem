@@ -1,0 +1,24 @@
+{
+  "name": "2_crud",
+  "version": "1.0.0",
+  "description": "La BDD est fourni:\r - Elle contient 2 tables : `story` et `comment`\r - Avec 2 données `story` et 3 commentaires en tout pour les 2 `story`",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.9.7",
+    "nodemon": "^3.1.0"
+  }
+}
