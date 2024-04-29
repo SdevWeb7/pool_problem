@@ -5,6 +5,7 @@ import 'dotenv/config';
 import { flashMiddleware } from "./flashMiddleware.js";
 import { authMiddleware } from "./authMiddleware.js";
 import session from "express-session";
+import { uploadMiddleware } from "./uploadMiddleware.js";
 
 const app = express();
 
@@ -20,8 +21,9 @@ app.use(session({
       cookie: { secure: false }
    })
 );
-app.use(flashMiddleware)
-app.use(authMiddleware)
+app.use(flashMiddleware);
+app.use(authMiddleware);
+app.use(uploadMiddleware);
 
 app.use(router);
 

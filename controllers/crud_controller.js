@@ -1,6 +1,7 @@
 import Story from "../models/Story.js";
 
 
+
 export const create_story = (req, res) => {
       Story.createStory(req.body.title, req.body.content).then((result) => {
          res.redirect("/admin")
@@ -8,6 +9,7 @@ export const create_story = (req, res) => {
          console.log(err);
          res.redirect("/admin")
       });
+
 }
 
 
@@ -24,7 +26,7 @@ export const delete_story = (req, res) => {
 
 
 export const update_story = (req, res) => {
-   Story.updateStory(req.params.id, req.body.title, req.body.content).then((result) => {
+   Story.updateStory(req.params.id, req.body.title, req.body.content).then(() => {
       res.redirect("/admin")
    }).catch((err) => {
       console.log(err);
